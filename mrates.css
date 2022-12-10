@@ -1,0 +1,189 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul,li,ol{
+    list-style: none;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+    color: #000;
+}
+/*@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;500&display=swap");
+/* font-family: 'Oswald', sans-serif;
+font-family: 'Roboto', sans-serif; */
+/* @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;500&display=swap")
+/* font-family: 'Oswald', sans-serif;
+font-family: 'Roboto', sans-serif; */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body{
+  font-family: 'Roboto', sans-serif;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Oswald', sans-serif; 
+}
+
+
+/*-- common class --*/
+.max-width{
+    max-width: 900px;
+}
+
+/*================== mortgage-rates-intro style =====================*/
+.mortgage-rates-intro {
+    background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .4)), url(./media/background.jpg) center;
+    padding: 70px 0;
+    background-size: cover;
+    background-position: 100% 30%;
+    margin-bottom: 30px;
+    color: #fff;
+}
+.mortgage-rates-intro h2{
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+.mortgage-rates-intro-p {
+    font-size: 14px;
+    padding-left: 30px;
+}
+
+
+/*================== mortgage-rates-boty style =====================*/
+.mortgage-rates-body-text h4{
+    font-size: 24px;
+    font-weight: 400;
+}
+.btn-rate-fixed,#fixed-tab,#vavariable-tab {
+    background: #feaa36;
+    border: #feaa36;
+    color: #fff;
+    margin-left: 10px;
+    padding: 7px 30px;
+    outline: none;
+    border-radius: 5px;
+    font-weight: 600;
+}
+.btn-rate-fixed:hover{
+    color: #fff;
+}
+.mortgage-rates-select-form {
+    align-items: center;
+    display: flex;
+    gap: 15px;
+    margin: 30px auto auto;
+    width: 275px;
+}
+.mortgage-rates-select-form .form-select {
+    background-color: #eff5ff;
+    width: auto;
+}
+.tab-top-wrapper{
+    text-align: center;
+    margin-top: 30px;
+}
+.card-body{
+    text-align: center;
+}
+.card a{
+    text-decoration: none;
+}
+.card-title{
+    color: #706d72;
+    font-size: 1.4em;
+    font-weight: 500;
+}
+.card-body .card-text {
+    color: #706d72;
+    font-size: 14px;
+    margin-top: 15px;
+}
+.card-body .btn{
+    border-color: #feaa36;
+    border-radius: 50%;
+    font-size: 26px;
+    line-height: 26px;
+    padding: 4px 10px;
+    cursor: pointer;
+    background: #feaa36;
+}
+.card-text {
+    margin-top: 25px;
+    text-align: center;
+}
+
+/*================== mortgage-rates-devider style =====================*/
+.rates-divider {
+    background: linear-gradient(90deg, #feaa36,#68b4aa);
+    padding: 2rem;
+}
+.rates-divider h2 {
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 700;
+    margin: auto;
+}
+.rates-compare__header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem;
+    margin: auto;
+    align-items: center;
+}
+.rates-compare__header-desc, .rates-compare__list {
+    padding-right: 2rem;
+}
+.rates-compare__header-heading h3{
+    color: #706d72;
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+/*================== mortgage-rates-boty style =====================*/
+.rates-compare__content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem;
+    margin: auto;
+    align-items: center;
+}
+.rates-compare__list h3{
+    margin-bottom: 2rem;
+    color: #706d72;
+    font-size: 1.3em;
+    font-weight: 700;
+}
+.rates-compare__list li {
+    font-size: .9em;
+    line-height: 1.5rem;
+    margin-bottom: 1rem;
+}
+.rates-compare__table {
+    margin-bottom: 1rem;
+}
+.rates-compare__table table thead{
+    text-align: center;
+}
+.rates-compare__table table th,td {
+    padding: 0.8rem;
+    text-align: center;
+}
+.rates-compare__table tr:nth-child(odd) td {
+    background-color: #f3f5f9;
+}
+.rates-compare__table tr>:first-child {
+    background-color: #f9f5f9;
+}
+.btn-rate-fixed a{
+    color: #fff;
+}
+.btn-rate-fixed a:hover{
+    color: #fff;
+}
