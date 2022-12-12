@@ -133,14 +133,15 @@ h1,h2,h3,h4,h5,h6{
     margin: auto;
 }
 .rates-compare__header {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
     padding: 2rem;
     margin: auto;
     align-items: center;
 }
 .rates-compare__header-desc, .rates-compare__list {
     padding-right: 2rem;
+    
 }
 .rates-compare__header-heading h3{
     color: #706d72;
@@ -150,8 +151,8 @@ h1,h2,h3,h4,h5,h6{
 }
 /*================== mortgage-rates-boty style =====================*/
 .rates-compare__content{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr; */
     padding: 2rem;
     margin: auto;
     align-items: center;

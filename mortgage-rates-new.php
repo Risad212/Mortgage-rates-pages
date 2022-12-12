@@ -1,20 +1,37 @@
+<?php
+include_once("common/config.php");
+$sql="SELECT bank_rate, our_rate FROM mortgage_rates WHERE term_id=9 OR term_id=11";
+$query=$dbConn->query($sql);
+$i=1;
+while ($mortgage_rates=$query->fetch_assoc()){
+    if($i==1){
+       $variable_bank_rate= $mortgage_rates['bank_rate'];
+       $variable_our_rate= $mortgage_rates['our_rate'];
+    }
+    if($i==2){
+       $fixed_1yr_open_rate= $mortgage_rates['our_rate'];
+    }
+$i++;}
+$query->free();
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <link rel="stylesheet" href="mrates.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mortgage Rates | Sunlitemortgage Alliance </title>
+  <link rel="apple-touch-icon" type="image/png" sizes="192x192" href="<?php echo $sSiteURL;?>media/common/apple-touch-icon-192x192.png" />
+  <link rel="apple-touch-icon" type="image/png" sizes="512x512" href="<?php echo $sSiteURL;?>media/common/apple-touch-icon-512x512.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="<?php echo $sSiteURL;?>media/common/icon-64x64.png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="<?php echo $sSiteURL;?>asset/css/style.css">
 </head>
-
 <body>
+<?php include_once('common/header.php'); ?>
 
-     <!-- banner start -->
-     <div class="mortgage-rates-intro">
+<!-- banner start -->
+<div class="mortgage-rates-intro">
         <div class="container">
             <div class="row">
                 <div class="col-md-2"></div>
@@ -78,9 +95,9 @@
             tabindex="0">
             <div class="container">
                 <div class="row">
-                    <div class="col-8 m-auto">
+                    <div class="col-6 m-auto">
                         <div class="row" id="fixed_row">
-                            <div class="col-lg-3 col-md-6">
+                            <div class="col-3">
                                 <div class="card">
                                     <a href="#" target="_blank">
                                         <div class="card-body">
@@ -99,7 +116,7 @@
                                     <span id="posted_fixed_1_yr"> 6.09</span>%
                                 </p>
                             </div>
-                            <div class="col-lg-3 col-md-6">
+                            <div class="col-3">
                                 <div class="card">
                                     <a href="https://www.mortgageboss.ca/leadgeneration/add_lead.aspx?Agent_ID=26036"
                                         target="_blank">
@@ -119,7 +136,7 @@
                                     <span id="posted_fixed_3_yr"> 5.79</span>%
                                 </p>
                             </div>
-                            <div class="col-lg-3 col-md-6">
+                            <div class="col-3">
                                 <div class="card">
                                     <a href="https://www.mortgageboss.ca/leadgeneration/add_lead.aspx?Agent_ID=26036"
                                         target="_blank">
@@ -139,7 +156,7 @@
                                     <span id="posted_fixed_5_yr"> 6.34</span>%
                                 </p>
                             </div>
-                            <div class="col-lg-3 col-md-6">
+                            <div class="col-3">
                                 <div class="card">
                                     <a href="https://www.mortgageboss.ca/leadgeneration/add_lead.aspx?Agent_ID=26036"
                                         target="_blank">
@@ -277,40 +294,33 @@
 
             <!-- rates compare content tow -->
             <div class="rates-compare__content max-width">
-                <div class="row">
-                   <div class="col-md-6 col-sm-12">
-                       <div class="rates-compare__list">
-                           <h3>You may want a closed fixed rate if…</h3>
-                           <ul>
-                               <li>If you plan to sell your home in the near future.</li>
-                               <li>If you intend to make prepayment of more than 20% of your mortgage principal.</li>
-                               <li>If you prefer to have the same payment over the course of your term.</li>
-                           </ul>
-                       </div>
-                   </div>
-                   <!-- column tow -->
-                   <div class="col-md-6 col-sm-12">
-                       <div class="rates-compare__table">
-                           <table>
-                               <thead>
-                                   <tr>
-                                       <th>Term</th>
-                                       <th>Posted Rate</th>
-                                       <th>Mortgage Alliance</th>
-                                   </tr>
-                               </thead>
-                               <tbody>
-                                   <tr>
-                                       <td id="vTerm">5yr</td>
-                                       <td id="VPostedRate">6.45%</td>
-                                       <td id="VMAlience">5.55%</td>
-                                   </tr>
-                               </tbody>
-                           </table>
-                       </div>
-                   </div>
+                <div class="rates-compare__list">
+                    <h3>You may want a closed fixed rate if…</h3>
+                    <ul>
+                        <li>If you plan to sell your home in the near future.</li>
+                        <li>If you intend to make prepayment of more than 20% of your mortgage principal.</li>
+                        <li>If you prefer to have the same payment over the course of your term.</li>
+                    </ul>
                 </div>
-           </div>
+                <div class="rates-compare__table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Term</th>
+                                <th>Posted Rate</th>
+                                <th>Mortgage Alliance</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td id="vTerm">1yr (closed)</td>
+                                <td id="VPostedRate">6.30%</td>
+                                <td id="VMAlience">6.30%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <!--====== fixed tab end ========-->
         </div>
 
@@ -321,7 +331,7 @@
                 tabindex="0">
                 <div class="container">
                     <div class="row">
-                        <div class="col-8 m-auto">
+                        <div class="col-6 m-auto">
                             <div class="row" id="fixed_row">
                                 <div class="col-md-3 m-auto">
                                     <div class="card">
@@ -370,39 +380,32 @@
 
                 <!-- rates compare content tow -->
                 <div class="rates-compare__content max-width">
-                     <div class="row">
-                        <div class="col-md-6 col-sm-12">
-                            <div class="rates-compare__list">
-                                <h3>You may want a closed fixed rate if…</h3>
-                                <ul>
-                                    <li>If you plan to sell your home in the near future.</li>
-                                    <li>If you intend to make prepayment of more than 20% of your mortgage principal.</li>
-                                    <li>If you prefer to have the same payment over the course of your term.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- column tow -->
-                        <div class="col-md-6 col-sm-12">
-                            <div class="rates-compare__table">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th>Term</th>
-                                            <th>Posted Rate</th>
-                                            <th>Mortgage Alliance</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td id="vTerm">5yr</td>
-                                            <td id="VPostedRate">6.45%</td>
-                                            <td id="VMAlience">5.55%</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                     </div>
+                    <div class="rates-compare__list">
+                        <h3>You may want a closed fixed rate if…</h3>
+                        <ul>
+                            <li>If you plan to sell your home in the near future.</li>
+                            <li>If you intend to make prepayment of more than 20% of your mortgage principal.</li>
+                            <li>If you prefer to have the same payment over the course of your term.</li>
+                        </ul>
+                    </div>
+                    <div class="rates-compare__table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Term</th>
+                                    <th>Posted Rate</th>
+                                    <th>Mortgage Alliance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="vTerm">5yr</td>
+                                    <td id="VPostedRate">6.45%</td>
+                                    <td id="VMAlience">5.55%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <!--====== varible tab end ========-->
             </div>
@@ -412,8 +415,37 @@
     <!--tab End -->
 
 
+<?php include_once('common/footer.php'); ?>
 <!-- ===========  javaScript files ================ -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="<?php echo $sSiteURL;?>asset/js/counter.js"></script>
+<script src="<?php echo $sSiteURL;?>asset/js/jquery.counterup.js"></script>
+<script src="<?php echo $sSiteURL;?>asset/js/jquery.waypoints.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- Javascript -->
+<script>
+    // Back to Top
+    let backToTopButton = document.getElementById("back_to_top");
+    window.onscroll = function() {
+        if (window.pageYOffset > 100) {
+            backToTopButton.className = "show";
+        } else {
+            backToTopButton.className = "";
+        }
+    };
+    backToTopButton.onclick = function () {
+        window.scrollTo({
+            top: 0,
+            left:0,
+            behavior: 'smooth'
+        });
+    }
+  //add class
+  function myFunction() {
+     var element = document.getElementById("mortgage-rates");
+     element.classList.add("active");
+  }
+  myFunction();
+</script>
 </body>
 </html>
